@@ -2,21 +2,14 @@
 ## MAM Setup
 We use Python 3.9, PyTorch 1.13.1 (CUDA 11.7 build), torchvision 0.14.1, diffusers 0.17.0 for local setup. You may specify the version in the requirements.txt to align with our local setup if you meet any version mismatch issues during the installation process.
 
-### Create a conda environment
-  
-  ```bash
-  conda env create -f environment.yml
-  conda activate mam
-  ```
-
-### Install packages and other dependencies.
+### Create conda environment and install dependencies
 
   ```bash
   git clone https://github.com/SHI-Labs/Matting-Anything
   cd Matting-Anything
-
-  # Install all dependencies
-  pip install -r requirements.txt
+  
+  conda env create -f environment.yml
+  conda activate mam
 
   # Install segment-anything
   python -m pip install -e segment-anything
