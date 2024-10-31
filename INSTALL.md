@@ -5,7 +5,7 @@ We use Python 3.9, PyTorch 1.13.1 (CUDA 11.7 build), torchvision 0.14.1, diffuse
 ### Create a conda environment
   
   ```bash
-  conda create --name mam python=3.9 -y
+  conda env create -f environment.yml
   conda activate mam
   ```
 
@@ -22,13 +22,15 @@ We use Python 3.9, PyTorch 1.13.1 (CUDA 11.7 build), torchvision 0.14.1, diffuse
   python -m pip install -e segment-anything
 
   # Install Grounding DINO
-  export BUILD_WITH_CUDA=True
-  export CUDA_HOME=/path/to/cuda/
+  conda env config vars set BUILD_WITH_CUDA=True
+  conda env config vars set CUDA_HOME=/path/to/cuda
   python -m pip install -e GroundingDINO
 
   #Install diffusers
   pip install --upgrade diffusers[torch]
   ```
+`/path/to/cuda` can e.g. be `$CONDA_PREFIX` or `$Env:CONDA_PREFIX` on Windows. On Windows, setting `conda env config vars set NVCC_PREPEND_FLAGS="-I$Env:CONDA_PREFIX\Library\include"` might also be necessary to install GroundinDINO.
+  
 More details can be found in [segment anything](https://github.com/facebookresearch/segment-anything#installation) and [ GroundingDINO](https://github.com/IDEA-Research/GroundingDINO#install) if you meet any installation issues.
 
 ### Download the pre-trained weights.

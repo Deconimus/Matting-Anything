@@ -1,0 +1,43 @@
+
+name: mam
+
+channels:
+  - pytorch
+  - conda-forge
+  - nvidia/label/cuda-11.7.0
+
+dependencies:
+  - python=3.9
+  - pip
+  - jupyter
+
+  # CUDA and PyTorch
+  #- pytorch
+  - torchvision=0.14.1
+  - pytorch-cuda=11.7
+  - cuda-nvcc  # for nvcc
+  - cuda-cudart-dev  # for cuda_runtime.h
+  - cuda-toolkit
+  - cudnn
+  - numpy
+
+  - pip:
+      - addict
+      - diffusers==0.17.0
+      - gradio==3.50.2
+      - huggingface_hub
+#      - Pillow
+      - PyYAML
+      - requests
+      - setuptools
+      - supervision
+      - termcolor
+      - yapf
+      - scipy
+      - easydict
+      - toml
+      - tensorboardX
+      - scikit-image
+      - opencv-python
+      - pycocotools
+      - matplotlib
